@@ -5,16 +5,47 @@ import { map } from 'rxjs/operators';
 
 import gql from 'graphql-tag';
 
+const GET_HOTELS = gql`
+  {
+    hotels {
+   {
+    hotels {
+      hotel_id
+      hotel_name
+      street
+      city
+      postal_code
+      price
+      email
+      user_id
+    }
+  }
+`;
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  hotels: Observable<any> | undefined;
+  public selectedHotel: any;
+  constructor(private apollo: Apollo) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+     this.hotels = this.apollo
+      .watchQuery({
+        query: GET_HOTELS,
+      })
+      .valueChanges.pipe(
+        map((result: any) => {
+          return result.data.hotels;
+        })
+      );
   }
 
+  onChosen(selectedHotel: any): void {
+    this.selectedHotel = selectedHotel;
+  }
 }

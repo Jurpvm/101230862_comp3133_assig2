@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BookComponent } from './book/book.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    BookComponent,
   ],
   imports: [
     BrowserModule,
