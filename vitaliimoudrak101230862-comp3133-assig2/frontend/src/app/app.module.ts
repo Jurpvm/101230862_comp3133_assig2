@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpLinkModule } from 'apollo-angular-link-http';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
 import { LoginsetupComponent } from './loginsetup/loginsetup.component';
 import { RegistersetupComponent } from './registersetup/registersetup.component';
@@ -21,6 +22,13 @@ import { HeaderComponent } from './header/header.component';
     LoginsetupComponent,
     RegistersetupComponent,
     HeaderComponent
+=======
+//import { ApolloModule, Apollo } from 'apollo-angular';
+
+@NgModule({
+  declarations: [
+    AppComponent
+>>>>>>> parent of 9445bbb (added 3 components)
 =======
 //import { ApolloModule, Apollo } from 'apollo-angular';
 
