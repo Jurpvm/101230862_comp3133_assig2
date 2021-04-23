@@ -11,12 +11,12 @@
       <input #password type="text" id="password" name="password" placeholder="Between 6 to 20">
 
       <label for="fname">First</label>
-      <input #first type="text" id="fname" name="first" placeholder="First name">
+      <input #firstname type="text" id="fname" name="first" placeholder="First name">
 
       <label for="lname">Last</label>
-      <input #last type="text" id="lname" name="last" placeholder="Last name">
+      <input #lastname type="text" id="lname" name="last" placeholder="Last name">
 
-      <button (click)="create(id.value, email.value, first.value, last.value, password.value)">
+      <button (click)="create(id.value, email.value, firstname.value, lastname.value, password.value)">
         Create your account here
       </button>
     </div>
