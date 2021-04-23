@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-loginsetup',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginsetupComponent implements OnInit {
 
-  constructor() { }
+  login: boolean = true; // switch between Login and SignUp
+  email: string = '';
+  password: string = '';
+  name: string = '';
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {
   }
 
+  ngOnInit() {
+  }
+
+  confirm() {
+    // ... you'll implement this in a bit
+  }
+
+  saveUserData(id, token) {
+    localStorage.setItem(GC_USER_ID, id);
+    localStorage.setItem(GC_AUTH_TOKEN, token);
+    this.authService.setUserId(id);
+  }
 }

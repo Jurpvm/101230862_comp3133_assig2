@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
+import {ApolloClientOptions, InMemoryCache, ApolloLink} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
+import { setContext } from '@apollo/client/link/context';
 
 const uri = "http://localhost:4000/graphql";
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {

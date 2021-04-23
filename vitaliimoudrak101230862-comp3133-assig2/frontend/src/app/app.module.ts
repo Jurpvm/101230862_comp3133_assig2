@@ -8,25 +8,27 @@ import { HttpLinkModule } from 'apollo-angular-link-http';
 import { HomeComponent } from './home/home.component';
 import { LoginsetupComponent } from './loginsetup/loginsetup.component';
 import { RegistersetupComponent } from './registersetup/registersetup.component';
-//import { ApolloModule, Apollo } from 'apollo-angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './auth.service';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginsetupComponent,
-    RegistersetupComponent
+    RegistersetupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     HttpClientModule,
-    HttpLinkModule
-=======
+    HttpLinkModule,
     GraphQLModule,
-    HttpClientModule
->>>>>>> parent of ffed8d2 (updated backend)
+    HttpClientModule,
+    NgbModule,
+    AuthService
   ],
   providers: [],
   bootstrap: [AppComponent]
