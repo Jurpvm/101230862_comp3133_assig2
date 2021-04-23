@@ -1,1 +1,25 @@
-<p>register works!</p>
+<div class="content" role="main">
+    <div class="container-form">
+
+      <label for="id">ID</label>
+      <input #id type="text" id="id" name="id" placeholder="Your ID...">
+
+      <label for="email">Email</label>
+      <input #email type="text" id="email" name="email" placeholder="Email">
+
+      <label for="password">Password</label>
+      <input #password type="text" id="password" name="password" placeholder="Between 6 to 20">
+
+      <label for="fname">First</label>
+      <input #first type="text" id="fname" name="first" placeholder="First name">
+
+      <label for="lname">Last</label>
+      <input #last type="text" id="lname" name="last" placeholder="Last name">
+
+      <button (click)="create(id.value, email.value, first.value, last.value, password.value)">
+        Create your account here
+      </button>
+    </div>
+  <br />
+  <a routerLink="/" routerLinkActive="active">Login</a>
+</div>
