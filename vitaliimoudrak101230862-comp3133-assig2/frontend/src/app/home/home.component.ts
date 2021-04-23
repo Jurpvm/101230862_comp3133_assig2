@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
 import gql from 'graphql-tag';
+import { Subscription } from 'rxjs';
 
 const GET_HOTELS = gql`
 
@@ -29,21 +30,21 @@ const GET_HOTELS = gql`
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  hotels: Observable<any> | undefined;
+  public loading: boolean;
+  private querySubscription: Subscription | undefined;
+  hotels: any | undefined;
   public selectedHotel: any;
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo) {
+    this.loading = true;
+  }
 
   ngOnInit() {
-     this.hotels = this.apollo
-      .watchQuery({
-        query: GET_HOTELS,
+
+     this.querySubscription  = this.apollo.watchQuery<any>({
+      query:GET_HOTELS}).valueChanges.subscribe(({data, loading})=>{
+        this.loading = loading;
+        this.hotels = data.getHotel
       })
-      .valueChanges.pipe(
-        map((result: any) => {
-          console.log(result);
-          return result.data.getHotel;
-        })
-      );
   }
 
   onChosen(selectedHotel: any): void {
