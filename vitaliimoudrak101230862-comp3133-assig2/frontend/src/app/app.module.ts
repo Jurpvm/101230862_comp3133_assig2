@@ -5,11 +5,17 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpLinkModule } from 'apollo-angular-link-http';
+import { HomeComponent } from './home/home.component';
+import { LoginsetupComponent } from './loginsetup/loginsetup.component';
+import { RegistersetupComponent } from './registersetup/registersetup.component';
 //import { ApolloModule, Apollo } from 'apollo-angular';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginsetupComponent,
+    RegistersetupComponent
   ],
   imports: [
     BrowserModule,
