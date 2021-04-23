@@ -3,18 +3,18 @@ import gql from 'graphql-tag';
 import { Observable } from 'rxjs';
 
 const GET_HOTELS = gql`
-  {
-    hotels {
-      hotel_id
+
+    query hotels {
+      hotels{hotel_id
       hotel_name
       street
       city
       postal_code
       price
       email
-      user_id
+      user_id}
     }
-  }
+  
 `;
 
 @Component({

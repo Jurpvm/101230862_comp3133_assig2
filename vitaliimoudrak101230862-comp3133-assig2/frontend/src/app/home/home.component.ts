@@ -6,10 +6,10 @@ import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
 
 const GET_HOTELS = gql`
-  {
-    hotels {
-   {
-    hotels {
+
+   query gethotel {
+
+    gethotel {
       hotel_id
       hotel_name
       street
@@ -40,7 +40,8 @@ export class HomeComponent implements OnInit {
       })
       .valueChanges.pipe(
         map((result: any) => {
-          return result.data.hotels;
+          console.log(result);
+          return result.data.getHotel;
         })
       );
   }

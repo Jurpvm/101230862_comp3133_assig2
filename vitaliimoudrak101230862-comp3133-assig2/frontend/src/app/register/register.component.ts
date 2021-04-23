@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {gql} from 'graphql-tag';
-import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import { Apollo } from 'apollo-angular';
 
 const GET_USERS = gql`
   {
-    hotels {
+    query hotels {
       hotel_id
       hotel_name
       street
@@ -28,13 +27,13 @@ const CREATE_USER = gql`
     $password: String!
   ) {
     addUser(
-      userInput: {
+
         user_id: $id
         first_name: $firstname
         last_name: $lastname
         password: $password
         email: $email
-      }
+
     ) {
       user_id
       firstname

@@ -20,6 +20,13 @@ const connect = mongoose.connect(url,
       useUnifiedTopology: true
 });
 
+app.use(cors({
+      origin: [
+        "http://localhost:4200",
+      ],
+      credentials: true,
+    }));
+
 connect.then((db) => {
       console.log('Connected correctly to server!');
 }, (err) => {
@@ -35,7 +42,6 @@ const server = new ApolloServer({
 //Define Express Server
 const app = express();
 app.use(bodyParser.json());
-app.use('*', cors());
 server.applyMiddleware({ app });
 app.listen({ port: process.env.PORT }, () =>
   console.log(`🚀 Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`));

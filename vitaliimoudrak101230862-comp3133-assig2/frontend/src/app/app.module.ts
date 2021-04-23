@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
@@ -24,13 +23,10 @@ import { BookComponent } from './book/book.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    HttpLinkModule,
+    NgbModule,
     GraphQLModule,
     HttpClientModule,
-    NgbModule,
-    FormsModule,
-    HttpLink
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

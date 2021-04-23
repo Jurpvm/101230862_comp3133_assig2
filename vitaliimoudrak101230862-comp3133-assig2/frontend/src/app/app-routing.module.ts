@@ -7,12 +7,12 @@ import { BookComponent } from './book/book.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: '',
-    component: LoginComponent,
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'register',
@@ -22,6 +22,8 @@ const routes: Routes = [
     path: 'book',
     component: BookComponent,
   },
+   { path: '',   redirectTo: '/login', pathMatch: 'full' },
+   { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
