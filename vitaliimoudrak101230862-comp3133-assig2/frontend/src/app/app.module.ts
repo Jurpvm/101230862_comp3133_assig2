@@ -4,14 +4,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpLinkModule } from 'apollo-angular-link-http';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     GraphQLModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpLink
   ],
   providers: [],
   bootstrap: [AppComponent]
