@@ -24,6 +24,8 @@
     "apollo-angular": "^2.4.0",
     "apollo-angular-link-http": "^1.11.0",
     "apollo-link": "^1.2.14",
+    "apollo-modules": "^1.0.7",
+    "apollo-server-express": "^2.23.0",
     "graphql": "^15.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
