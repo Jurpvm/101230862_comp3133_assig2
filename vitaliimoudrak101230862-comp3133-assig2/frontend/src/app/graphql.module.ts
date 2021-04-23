@@ -1,43 +1,34 @@
 import {NgModule} from '@angular/core';
-import {ApolloClientOptions,ApolloLink, InMemoryCache} from '@apollo/client/core';
-
-
+import {APOLLO_OPTIONS} from 'apollo-angular';
+import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
+import {HttpLink} from 'apollo-angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
-import { HttpLink } from 'apollo-angular/http';
 
-import { setContext } from '@apollo/client/link/context';
-
-const uri = 'http://localhost:4000/graphql'; // <-- add the URL of the GraphQL server here
+const uri = "http://localhost:4000/graphql";
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
-  const token = localStorage.getItem("token");
-  const auth = setContext((operation, context) => {
-    if (token)
-      return {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      };
-
-      return;
-  });
-
-  const link = ApolloLink.from([auth, httpLink.create({ uri })]);
-
   return {
-    link: link,
-    cache: new InMemoryCache()
+    link: httpLink.create({uri}),
+    cache: new InMemoryCache(),
   };
 }
 
 @NgModule({
-  exports: [
+  imports: [
     HttpClientModule,
   ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory: createApollo,
-    deps: [HttpLink]
-  }]
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => {
+        return {
+          cache: new InMemoryCache(),
+          link: httpLink.create({
+            uri: 'http://localhost:4000/graphql',
+          }),
+        };
+      },
+      deps: [HttpLink],
+    },
+  ],
 })
 export class GraphQLModule {}
